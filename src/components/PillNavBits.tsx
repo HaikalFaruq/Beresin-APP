@@ -126,9 +126,9 @@ const PillNavBits: React.FC<PillNavBitsProps> = ({
     ['--pill-bg']: pillColor,
     ['--hover-text']: hoveredPillTextColor,
     ['--pill-text']: resolvedPillTextColor,
-    ['--nav-h']: '42px',
-    ['--pill-pad-x']: '18px',
-    ['--pill-gap']: '3px',
+    ['--nav-h']: 'clamp(32px, 8vw, 42px)',
+    ['--pill-pad-x']: 'clamp(8px, 2vw, 18px)',
+    ['--pill-gap']: 'clamp(2px, 0.5vw, 3px)',
   } as React.CSSProperties;
 
   return (
@@ -147,8 +147,8 @@ const PillNavBits: React.FC<PillNavBitsProps> = ({
         <img src={logo} alt={logoAlt} ref={logoImgRef} className="w-full h-full object-cover block" />
       </a>
 
-      <div ref={navItemsRef} className="relative items-center rounded-full flex ml-2" style={{ height: 'var(--nav-h)', background: 'var(--base, #000)' }}>
-        <ul role="menubar" className="list-none flex items-stretch m-0 p-[3px] h-full" style={{ gap: 'var(--pill-gap)' }}>
+      <div ref={navItemsRef} className="relative items-center rounded-full flex ml-2 w-full" style={{ height: 'var(--nav-h)', background: 'var(--base, #000)', minHeight: '32px', maxHeight: '42px' }}>
+        <ul role="menubar" className="list-none flex items-stretch m-0 p-[3px] h-full w-full justify-between" style={{ gap: 'var(--pill-gap)' }}>
           {items.map((item, i) => {
             const isActive = activeHref === item.href;
             const pillStyle: React.CSSProperties = {
@@ -179,7 +179,7 @@ const PillNavBits: React.FC<PillNavBitsProps> = ({
                 )}
               </>
             );
-            const basePillClasses = 'relative overflow-hidden inline-flex items-center justify-center h-full no-underline rounded-full box-border font-semibold text-[16px] uppercase whitespace-nowrap cursor-pointer px-0';
+            const basePillClasses = 'relative overflow-hidden inline-flex items-center justify-center h-full no-underline rounded-full box-border font-semibold text-[10px] sm:text-[11px] md:text-[12px] lg:text-[14px] xl:text-[16px] uppercase whitespace-nowrap cursor-pointer px-0';
             const clickHandler = (e: React.MouseEvent<HTMLAnchorElement | HTMLSpanElement>) => {
               if (onItemClick) {
                 e.preventDefault();
