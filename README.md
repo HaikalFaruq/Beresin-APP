@@ -8,7 +8,8 @@
 ## 📸 Preview
 
 ![Beresin APP Demo](./demo.gif)  
-*(Ganti `demo.gif` dengan GIF dari preview aplikasi kamu)*
+<img width="4000" height="3000" alt="Celestial Laptop Mockup-min" src="https://github.com/user-attachments/assets/bcc2e9e4-87df-4c92-864c-4e873be0720a" />
+
 
 ---
 
