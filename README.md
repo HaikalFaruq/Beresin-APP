@@ -84,3 +84,24 @@ npm run dev
 
 # Build untuk production
 npm run build
+```
+
+---
+
+## 🤖 AI Support Explanation
+
+<div align="center">
+
+| Area       | AI Capability | Description |
+|------------|---------------|-------------|
+| 🎯 **Model Selection** | Identifying AI Models | Memilih varian **IBM Granite** yang sesuai untuk tugas pemrograman seperti optimisasi performa atau penulisan kode awal. |
+| 📝 **Prompt Engineering** | Effective Prompting | Menyusun prompt yang jelas dan terarah untuk menghasilkan keluaran AI yang relevan dan akurat. |
+| ⚡ **Code Generation** | AI-Assisted Coding | Menghasilkan potongan kode awal (scaffold) dengan bantuan AI untuk mempercepat pengembangan fitur. |
+| 🔧 **Code Optimization** | Performance & Readability | Mengoptimalkan kode hasil AI agar lebih efisien, mudah dibaca, dan terjaga maintainability-nya. |
+| 🛠 **Troubleshooting** | AI-Driven Debugging | Mengidentifikasi masalah umum pada kode hasil AI dan memberikan solusi perbaikan secara langsung. |
+| 📋 **Structured Review** | AI in Code Review | Menerapkan alur kerja terstruktur untuk meninjau dan memperbaiki kode menggunakan insight dari AI. |
+| 🖥 **Hands-On Use** | Code Generation & Optimization | Menggunakan IBM Granite untuk membuat, mengoptimalkan, dan memecahkan masalah kode secara mandiri. |
+
+</div>
+
+> **Impact**: Integrasi IBM Granite di Beresin-APP meningkatkan kecepatan pengembangan, mengurangi potensi bug, dan memastikan kualitas kode sesuai standar industri. AI berperan sebagai partner kolaboratif, bukan sekadar alat bantu.
