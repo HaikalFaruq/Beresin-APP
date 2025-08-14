@@ -3,9 +3,13 @@ import { Todo } from '@/types/todo';
 import { useTodos } from '@/hooks/useTodos';
 import { TodoCard } from '@/components/TodoCard';
 import { TodoForm } from '@/components/TodoForm';
-import { TodoFilters } from '@/components/TodoFilters';
+import { PillNav } from '@/components/PillNav';
+import PillNavBits from '@/components/PillNavBits';
+import BlurText from '@/components/BlurText';
 import { TodoStats } from '@/components/TodoStats';
 import { Button } from '@/components/ui/button';
+import ClickSpark from '@/components/ClickSpark';
+import ShinyText from '@/components/ShinyText';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -75,16 +79,30 @@ export const TodoApp = () => {
   }
 
   return (
-    <div className="min-h-screen p-4 md:p-6 lg:p-8">
-      <div className="max-w-4xl mx-auto space-y-8">
-        {/* Header */}
-        <div className="text-center space-y-4 animate-fade-in">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-hero bg-clip-text text-transparent">
-            My Tasks
-          </h1>
-          <p className="text-lg text-muted-foreground">
-            Stay organized and get things done
-          </p>
+    <ClickSpark
+      sparkColor="#000000"
+      sparkSize={8}
+      sparkRadius={20}
+      sparkCount={12}
+      duration={420}
+      className="min-h-screen bg-dot-grid"
+    >
+      <div className="p-4 md:p-6 lg:p-8">
+        <div className="max-w-4xl mx-auto space-y-8">
+        {/** Use Hacktiv8 logo for pill nav logo */}
+
+        {/* Top Title - Blur Text with ClickSpark */}
+        <ClickSpark sparkColor="#000000" sparkSize={10} sparkRadius={18} sparkCount={10} duration={420}>
+          <BlurText
+            text="TO DO APP"
+            delay={150}
+            animateBy="letters"
+            direction="top"
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-center"
+          />
+        </ClickSpark>
+        <div className="text-center -mt-2">
+          <ShinyText text="Created by KALL" speed={3} className="text-base md:text-lg lg:text-xl" />
         </div>
 
         {/* Stats */}
@@ -96,16 +114,44 @@ export const TodoApp = () => {
         <Card className="bg-gradient-card border-border/50 shadow-card animate-slide-up">
           <CardHeader className="pb-4">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <CardTitle className="text-xl font-semibold">Task Management</CardTitle>
-              <div className="flex gap-2 w-full sm:w-auto">
-                <Button
+              <div className="flex flex-col gap-3">
+                <CardTitle className="text-xl font-semibold">Task Management</CardTitle>
+                <div className="mt-1">
+                  {/** remote hacktiv8 logo */}
+                  <PillNavBits
+                    logo={"https://tse4.mm.bing.net/th/id/OIP.FBkTX3uXaCK1Det6nKzYbwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3"}
+                    items={[
+                      { label: 'All Tasks', href: '/' },
+                      { label: 'Active Tasks', href: '/active' },
+                      { label: 'Completed Tasks', href: '/completed' },
+                    ]}
+                    activeHref={
+                      filter === 'all' ? '/' : filter === 'active' ? '/active' : '/completed'
+                    }
+                    className="max-w-full"
+                    baseColor="#000000"
+                    pillColor="#ffffff"
+                    hoveredPillTextColor="#ffffff"
+                    onItemClick={(item) => {
+                      if (item.href === '/') setFilter('all');
+                      else if (item.href === '/active') setFilter('active');
+                      else if (item.href === '/completed') setFilter('completed');
+                    }}
+                  />
+                </div>
+              </div>
+                <div className="flex gap-2 w-full sm:w-auto">
+                  <ClickSpark sparkColor="#000000" sparkSize={8} sparkRadius={14} sparkCount={8} duration={360}>
+                   <Button
                   onClick={() => setShowForm(true)}
                   className="flex-1 sm:flex-none bg-gradient-primary hover:opacity-90 transition-all duration-200 shadow-elegant"
                 >
                   <Plus className="w-4 h-4 mr-2" />
                   Add Task
-                </Button>
+                 </Button>
+                  </ClickSpark>
                 {stats.completed > 0 && (
+                  <ClickSpark sparkColor="#000000" sparkSize={6} sparkRadius={12} sparkCount={8} duration={320}>
                   <Button
                     variant="outline"
                     onClick={clearCompleted}
@@ -113,22 +159,17 @@ export const TodoApp = () => {
                   >
                     <Trash2 className="w-4 h-4 mr-2" />
                     Clear
-                  </Button>
+                   </Button>
+                  </ClickSpark>
                 )}
               </div>
             </div>
           </CardHeader>
-          <CardContent>
-            <TodoFilters
-              currentFilter={filter}
-              onFilterChange={setFilter}
-              stats={stats}
-            />
-          </CardContent>
+          <CardContent></CardContent>
         </Card>
 
         {/* Tasks List */}
-        <Card className="bg-gradient-card border-border/50 shadow-card animate-slide-up">
+        <Card className="bg-gradient-card border-border/50 shadow-card">
           <CardHeader>
             <CardTitle className="text-lg font-semibold">
               {filter === 'all' && 'All Tasks'}
@@ -156,12 +197,8 @@ export const TodoApp = () => {
             ) : (
               <ScrollArea className="max-h-[600px]">
                 <div className="space-y-3">
-                  {todos.map((todo, index) => (
-                    <div
-                      key={todo.id}
-                      className="animate-slide-up"
-                      style={{ animationDelay: `${index * 50}ms` }}
-                    >
+                  {todos.map((todo) => (
+                    <div key={todo.id}>
                       <TodoCard
                         todo={todo}
                         onToggle={toggleTodo}
@@ -182,7 +219,8 @@ export const TodoApp = () => {
             You have {stats.active} active task{stats.active !== 1 ? 's' : ''} remaining
           </div>
         )}
+        </div>
       </div>
-    </div>
+    </ClickSpark>
   );
 };
