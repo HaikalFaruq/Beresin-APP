@@ -5,6 +5,57 @@
 
 ---
 
+## Project Overview
+
+Click each section below to see the full details of the Beresin-APP project.
+
+<details>
+<summary><b>📜 Background</b></summary>
+
+In today's fast-paced digital era, individuals from all walks of life—from students and software developers to professionals—face the challenge of managing multiple tasks and responsibilities simultaneously. Without the right tools, workflows can become disorganized, leading to delays and an overall decrease in productivity. The need for an efficient, simple, and accessible task management system has become crucial.
+
+</details>
+
+<details>
+<summary><b>🎯 Problem Statement</b></summary>
+
+The primary problems this project aims to solve are:
+<ul>
+  <li><b>Task Fragmentation:</b> Users often record tasks across various platforms (physical notes, messaging apps, email), making it difficult to get a complete overview and track progress.</li>
+  <li><b>Application Complexity:</b> Many existing task management applications on the market are overly complex for daily needs, resulting in a steep learning curve and inefficient use.</li>
+  <li><b>Lack of Focus:</b> Cluttered and distracting interfaces can disrupt user concentration, which should be focused on completing tasks.</li>
+  <li><b>Poor Accessibility:</b> Non-responsive designs can hinder task management across different devices, such as mobile phones and tablets.</li>
+</ul>
+</details>
+
+<details>
+<summary><b>🏆 Project Goals</b></summary>
+
+The main goal of the <b>Beresin-APP</b> project is to design and build a web-based task management application that is:
+<ul>
+  <li><b>Intuitive:</b> To provide a clean, minimalist, and easy-to-understand user interface (UI).</li>
+  <li><b>Efficient:</b> To allow users to quickly add, edit, filter, and track task statuses.</li>
+  <li><b>Informative:</b> To offer a visual summary through a simple analytics dashboard to monitor productivity.</li>
+  <li><b>Responsive:</b> To be fully accessible and functional across various devices (desktop, tablet, and mobile).</li>
+</ul>
+</details>
+
+<details>
+<summary><b>🛠️ Approach & Solution</b></summary>
+
+To achieve these goals, this project implements a modern development approach, summarized in the table below:
+
+| Aspect | Technology / Method | Brief Description |
+| :--- | :--- | :--- |
+| **Tech Foundation** | `Vite`, `TypeScript`, `React` | Builds a fast, modern application with guaranteed code quality and maintainability. |
+| **Design & UX** | `Tailwind CSS`, `shadcn-ui` | Creates a clean, responsive, and distraction-free interface with accessible components. |
+| **Core Functionality**| Task Management (CRUD) | Full features for adding, viewing, editing, and deleting tasks, along with filtering and an analytics dashboard. |
+| **Data Management** | Client-Side State Management| All data is managed on the client-side to ensure speed and real-time functionality without a complex backend. |
+
+</details>
+
+---
+
 ## 📸 Preview
 
 ![Beresin APP Demo](./demo.gif)  
